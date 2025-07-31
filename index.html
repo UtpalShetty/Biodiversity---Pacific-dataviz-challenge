@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Red list</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Solway:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    body { font-family: 'Solway', sans-serif; margin: 20px; }
+    h2 { margin-top: 40px; }
+    .axis path, .axis line { stroke: #ccc; }
+    .legend text { font-size: 12px; alignment-baseline: middle; }
+    .tooltip {
+      position: absolute;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 3px;
+      pointer-events: none;
+      font-size: 12px;
+      visibility: hidden;
+    }
+    .button-container { margin-bottom: 15px; }
+    .button-container button { margin-right: 5px; padding: 6px 12px; }
+    .chart-container { display: flex; justify-content: center; width: 100%; }
+    
+  
+  </style>
+</head>
+<body>
+  <!--Title section-->
+  <h1>THE <span class = "logo highlight">RED</span> LIST</h1>
+  <h1 class = "title2">Exploring Biodiversity trends in the Pacific</h1>
+  <h3>Visual article by <span class = "highlight_name">Utpal Shetty</span></h3>
+  <hr>
+
+  <!--Introduction-->
+  <h2><span class = "highlight-container"><span class = "highlight-1">What exactly is Red list Index and why do we care??</span></span></h2>
+  <p>Red list Index is a measure of changing state of global biodiversity, indicating trends in extinction risk for various species groups based on the IUCN Red List of Threatened Species.
+     We care about this because this serves as a marker for governments and conservation organizations to monitor progress towards biodiversity targets.
+     An RLI value of <b class = "highlight-text-gain">1.0</b> indicates a healthy ecosystem, whereas an RLI value of <b class = "highlight-text-loss">0</b> indicates that all species have gone extinct.
+  </p>
+
+  <hr>
+
+  <h2><span class = "highlight-container"><span class = "highlight-1">How does Pacific islands fare in terms of RLI ?</span></span></h2>
+  <p>Let us take a look into three prominent regions in the pacific</p>
+
+  <!-- Melanesia Section -->
+  <h2><span class = "circle-sketch-highlight">Melanesia</span></h2>
+  <p>The Melanesia region involves Fiji, New Caledonia, Papua New Guinea, Solomon islands and Vanuatu. The average combined biodiversity loss in these regions from the year 1993 - 2024 was <b class="highlight-text">0.082</b>, 
+     with <b class = "highlight-text-loss">Papua New Guinea</b> contributing to <b class = "highlight-text-loss">maximum loss(RLI = -0.1)</b> in the region and <b class = "highlight-text-gain">Fiji</b> contributing the <b class = "highlight-text-gain">least (RLI = -0.05) loss of biodiversity</b>.
+  </p>
+  <div id="melanesia-buttons" class="button-container"></div>
+  <div id="melanesia-chart" class="chart-container"></div>
+  <hr>
+  <!-- Micronesia Section -->
+  <h2 class = "circle-sketch-highlight">Micronesia</h2> 
+  <p>The Micronesia region involves Kiribati, Marshall islands, Federal states of micronesia, Nauru and Palau. The average combined biodiversity loss in the micronesia region from the year 1993 - 2024 was <b class="highlight-text">0.136</b>.
+     In the said time period, the <b class = "highlight-text-loss">highest biodiversity loss</b> across all of the pacific regions (Melanesia,  Micronesia, Polynesia) was seen in <b class = "highlight-text-loss">Palau (RLI = -0.3)</b>  </p>
+  <div id="micronesia-buttons" class="button-container"></div>
+  <div id="micronesia-chart" class="chart-container"></div>
+  <hr>
+  <!-- Polynesia Section -->
+  <h2 class = "circle-sketch-highlight">Polynesia</h2>
+  <p>The polynesia region involves Cook islands, French polynesia, Niue, Samoa, Tonga and Tuvalu. The average combined biodiversity loss from 1993 - 2024 was <b class="highlight-text">0.041</b>. This region also boasted the lowest biodiversity 
+     loss in form of two countries - <b class = "highlight-text-gain">Cook islands (RLI = -0.03) and Samoa (RLI = -0.03)</b>, across all three regions. Only one country saw an increase in RLI across all 16 countries in the pacific and that was 
+     <b class = "highlight-text-gain">Niue (RLI = +0.02)</b>
+  </p>
+  <div id="polynesia-buttons" class="button-container"></div>
+  <div id="polynesia-chart" class="chart-container"></div>
+
+  <hr>
+
+  <!--Conclusion-->
+  <h2><span class = "highlight-container"><span class = "highlight-1">Conclusion</span></span></h2>
+  <p>The fan plots provide a model of how ecosystems will prevail for the coming years in the Pacific region. When we peek into the RLI data for more than three decades, we observe that <b class = "highlight-text-gain">polynesia</b> region has the
+     <b class = "highlight-text-gain">least biodiversity loss (Average RLI loss = 0.041)</b> when compared to other two. The contributing factor for this predominantly is that out of the six countries included in this region, two have least biodiversity loss (Cook islands and Samoa)
+     and one actually has a gain in RLI index (Niue). The <b class = "highlight-text-loss">highest biodiversity loss(Average RLI loss = 0.136)</b> is seen in <b class = "highlight-text-loss">micronesia</b>. 
+  </p>
+  <hr>
+
+  <!--Nuances-->
+  <h2><span class = "highlight-container"><span class = "highlight-1">Nuances</span></span></h2>
+  <h3>Choice of design</h3>
+  <p>In accordance with the theme of this year's Pacific dataviz challenge - <b>"Blue pacific 2050"</b>. The challenge with design was to get something which resonates well with vision of how the RLI will look marching forward to 2050. That is how Fan plot
+     was chosen to represent the probabilistic models of the RLI indexes in 16 countries across the pacific region.</p>
+
+  <h3>Choice of colors</h3>
+  <p>The choice of colors for the fan plot was made with keeping the pacific region in mind. The colours contain the hue of <span style = "color:#FA5F55"><strong>"Alani - Sunset Orange"</strong></span>, <span style = "color:#E8B5BD"><strong>"Akala - Pink"</strong></span>, <span style = "color:#D0B59A"><strong>"Ahiehie - Sandy Beige"</strong></span>, <span style = "color:#4d7d5c"><strong>"Oma'oma'o - Lush green"</strong></span>, <span style = "color:#528ed1"><strong>"Polu - Ocean Blue"</strong></span>, <span style = "color: #463d40"><strong>"Ele'ele - Volcanic Black"</strong></span> </p>
+  
+  <h3>Tools of trade</h3>
+  <p>This project was built using <a href = "https://d3-graph-gallery.com/">D3.js</a>. The source code is available on my <a href = "https://github.com/UtpalShetty  ">github</a></p>
+  <p>The data is sourced from the <a href = "https://stats.pacificdata.org/?fs[0]=Development%20indicators%2C0%7CBlue%20Pacific%202050%20Indicators%23BP50%23&pg=0&fc=Development%20indicators&bp=true&snb=8">pacific data hub</a>, in particular <a href = "https://stats.pacificdata.org/?fs[0]=Development%20indicators%2C0%7CBlue%20Pacific%202050%20Indicators%23BP50%23&fs[1]=Topic%2C0%7CEnvironment%23ENV%23&pg=0&fc=Topic&snb=2 ">Blue pacific 2050: Ocean and environment (Thematic area 6)</a></p>
+  <p>This is a project made for <a href = "https://pacificdatavizchallenge.org/#statistics">Pacific dataviz challenge</a></p>
+
+  <img src = "Pacific dataviz.jpeg">
+
+  <!-- Shared tooltip -->
+  <div id="tooltip" class="tooltip"></div>
+
+  <script> 
+    const margin = { top: 40, right: 100, bottom: 40, left: 60 };
+    const width  = 800 - margin.left - margin.right;
+    const height = 400 - margin.top  - margin.bottom;
+
+    
+    function renderFanChart(chartId, buttonsId, regions) {
+      const btnContainer = d3.select('#' + buttonsId);
+      const chartDiv    = d3.select('#' + chartId);
+      btnContainer.html('');
+      chartDiv.html('');
+
+      
+      const svg = chartDiv.append('svg')
+        .attr('width',  width + margin.left + margin.right)
+        .attr('height', height + margin.top  + margin.bottom)
+        .append('g')
+          .attr('transform', `translate(${margin.left},${margin.top})`);
+
+      const tooltip = d3.select('#tooltip');
+
+      
+      function draw(region) {
+        d3.csv(region.file, d => ({
+          year     : d3.timeParse('%Y')(d.Year || d.TIME_PERIOD),
+          central  : +d.Central_RLI,
+          ci50low  : +d['50% CI Low'],
+          ci50high : +d['50% CI High'],
+          ci80low  : +d['80% CI Low'],
+          ci80high : +d['80% CI High'],
+          ci95low  : +d['95% CI Low'],
+          ci95high : +d['95% CI High']
+        })).then(data => {
+          svg.selectAll('*').remove();
+
+          const x = d3.scaleTime()
+            .domain(d3.extent(data, d => d.year))
+            .range([0, width]);
+          const y = d3.scaleLinear()
+            .domain([
+              d3.min(data, d => d.ci95low) * 0.99,
+              d3.max(data, d => d.ci95high) * 1.01
+            ])
+            .range([height, 0]);
+
+          const area95 = d3.area()
+            .curve(d3.curveMonotoneX)
+            .x(d => x(d.year)).y0(d => y(d.ci95low)).y1(d => y(d.ci95high));
+          const area80 = d3.area()
+            .curve(d3.curveMonotoneX)
+            .x(d => x(d.year)).y0(d => y(d.ci80low)).y1(d => y(d.ci80high));
+          const area50 = d3.area()
+            .curve(d3.curveMonotoneX)
+            .x(d => x(d.year)).y0(d => y(d.ci50low)).y1(d => y(d.ci50high));
+
+          svg.append('path').datum(data)
+            .attr('fill', region.colors.ci95).attr('d', area95);
+          svg.append('path').datum(data)
+            .attr('fill', region.colors.ci80).attr('d', area80);
+          svg.append('path').datum(data)
+            .attr('fill', region.colors.ci50).attr('d', area50);
+
+          const lineGen = d3.line()
+            .curve(d3.curveMonotoneX)
+            .x(d => x(d.year)).y(d => y(d.central));
+          svg.append('path').datum(data)
+            .attr('fill','none')
+            .attr('stroke', region.colors.central)
+            .attr('stroke-width',2)
+            .attr('d', lineGen);
+
+          
+          const bisect = d3.bisector(d => d.year).left;
+          const focus = svg.append('circle')
+            .attr('r',4).attr('fill', region.colors.central)
+            .style('visibility','hidden');
+
+          svg.append('rect')
+            .attr('width', width).attr('height', height)
+            .attr('fill','none').attr('pointer-events','all')
+            .on('mousemove', (event) => {
+              const [mx] = d3.pointer(event);
+              const x0 = x.invert(mx);
+              const i = bisect(data, x0, 1);
+              const d0 = data[i-1], d1 = data[i] || d0;
+              const d  = (x0 - d0.year) > (d1.year - x0) ? d1 : d0;
+              tooltip.style('visibility','visible')
+                     .style('top',  (event.pageY - 30) + 'px')
+                     .style('left', (event.pageX + 10) + 'px')
+                     .text(`${region.name} ${d3.timeFormat('%Y')(d.year)} – ${d.central.toFixed(3)}`);
+              focus.style('visibility','visible')
+                   .attr('cx', x(d.year)).attr('cy', y(d.central));
+            })
+            .on('mouseout', () => { tooltip.style('visibility','hidden'); focus.style('visibility','hidden'); });
+
+          
+          svg.append('g')
+             .attr('transform', `translate(0,${height})`)
+             .call(d3.axisBottom(x).ticks(10));
+          svg.append('g').call(d3.axisLeft(y));
+
+          
+          const legend = svg.append('g')
+            .attr('transform', `translate(${width + 20},0)`);
+          [
+            {label:'95% CI', color: region.colors.ci95},
+            {label:'80% CI', color: region.colors.ci80},
+            {label:'50% CI', color: region.colors.ci50},
+            {label:'Central RLI', color: region.colors.central, stroke:true}
+          ].forEach((it,i) => {
+            const g = legend.append('g').attr('transform', `translate(0,${i*20})`);
+            if (it.stroke) {
+              g.append('line')
+               .attr('x1',0).attr('y1',5).attr('x2',20).attr('y2',5)
+               .attr('stroke', it.color).attr('stroke-width',2);
+            } else {
+              g.append('rect')
+               .attr('x',0).attr('y',0).attr('width',20).attr('height',10)
+               .attr('fill', it.color);
+            }
+            g.append('text').attr('x',25).attr('y',8).text(it.label);
+          });
+
+          
+          svg.append('text')
+            .attr('x', width/2).attr('y', -15)
+            .attr('text-anchor','middle').style('font-size','16px')
+            .text(`Fan Chart: ${region.name}`);
+        });
+      }
+
+      
+      regions.forEach((r, i) => {
+        btnContainer.append('button')
+          .text(r.name)
+          .on('click', () => draw(r));
+      });
+      
+      if (regions.length) draw(regions[0]);
+    }
+
+    
+    const melanesiaRegions = [
+      { name: 'New Caledonia', file: 'New_Caledonia_With_Widened_CIs.csv', colors: { ci95:'rgba(250, 95, 85, 0.3)', ci80:'rgba(250, 95, 85, 0.5)', ci50:'rgba(250, 95, 85, 0.7)', central:'rgb(153, 30, 25)' } },
+      { name: 'Fiji', file: 'Fiji_With_Projected_CIs.csv', colors: { ci95:'rgba(232,181,189,0.3)', ci80:'rgba(232,181,189,0.5)', ci50:'rgba(232,181,189,0.7)', central:'rgb(145, 70, 85)' } },
+      { name: 'Papua New Guinea', file: 'Papua_Increasing_Uncertainty_2025_2035.csv', colors:{ci95:'rgba(208, 181, 154,0.3)',ci80:'rgba(208, 181, 154,0.5)',ci50:'rgba(208, 181, 154,0.7)',central:'rgb(115, 85, 50)'} },
+      { name: 'Solomon Islands', file: 'Solomon_With_Increasing_Uncertainty_2025_2035.csv', colors:{ci95:'rgba(77,125,92,0.3)',ci80:'rgba(77,125,92,0.5)',ci50:'rgba(77,125,92,0.7)',central:'rgb(25, 70, 40)'} },
+      { name: 'Vanuatu', file: 'Vanuatu_Increasing_Uncertainty_2025_2035.csv', colors:{ci95:'rgba(82,142,209,0.3)',ci80:'rgba(82,142,209,0.5)',ci50:'rgba(82,142,209,0.7)',central:'	rgb(25, 65, 135)'} }
+    ];
+
+    const micronesiaRegions = [
+      { name: 'Kiribati', file: 'Kiribati_Increasing_Uncertainty_2025_2035.csv', colors: {ci95:'rgba(208, 181, 154,0.3)',ci80:'rgba(208, 181, 154,0.5)',ci50:'rgba(208, 181, 154,0.7)',central:'rgb(115, 85, 50)'} },  
+      { name: 'Marshall islands', file: 'Marshall_Increasing_Uncertainty_2025_2035.csv', colors: {ci95:'rgba(77,125,92,0.3)',ci80:'rgba(77,125,92,0.5)',ci50:'rgba(77,125,92,0.7)',central:'rgb(25, 70, 40)'} },
+      { name: 'Micronesia', file: 'FM_Increasing_Uncertainty_2025_2035.csv', colors: {ci95:'rgba(82,142,209,0.3)',ci80:'rgba(82,142,209,0.5)',ci50:'rgba(82,142,209,0.7)',central:'	rgb(25, 65, 135)'} },
+      { name: 'Nauru', file: 'Nauru_Increasing_Uncertainty_2025_2035.csv', colors: { ci95:'rgba(250, 95, 85, 0.3)', ci80:'rgba(250, 95, 85, 0.5)', ci50:'rgba(250, 95, 85, 0.7)', central:'rgb(153, 30, 25)' } },
+      { name: 'Palau', file: 'Palau_Increasing_Uncertainty_2025_2035.csv', colors: { ci95:'rgba(232,181,189,0.3)', ci80:'rgba(232,181,189,0.5)', ci50:'rgba(232,181,189,0.7)', central:'rgb(145, 70, 85)' } }
+      
+    ];
+
+    const polynesiaRegions = [
+      { name: 'Cook Islands', file: 'Extended_Fan_Chart_Cook_Islands.csv', colors: {ci95:'rgba(82,142,209,0.3)',ci80:'rgba(82,142,209,0.5)',ci50:'rgba(82,142,209,0.7)',central:'	rgb(25, 65, 135)'}  },
+      { name: 'French polynesia', file: 'PF_Increasing_Uncertainty_2025_2035.csv', colors: { ci95:'rgba(250, 95, 85, 0.3)', ci80:'rgba(250, 95, 85, 0.5)', ci50:'rgba(250, 95, 85, 0.7)', central:'rgb(153, 30, 25)' } },
+      { name: 'Niue', file: 'NU_Increasing_Uncertainty_2025_2035.csv', colors:{ ci95:'rgba(232,181,189,0.3)', ci80:'rgba(232,181,189,0.5)', ci50:'rgba(232,181,189,0.7)', central:'rgb(145, 70, 85)' }  },
+      { name: 'Samoa', file: 'WS_Increasing_Uncertainty_2025_2035.csv', colors:{ci95:'rgba(208, 181, 154,0.3)',ci80:'rgba(208, 181, 154,0.5)',ci50:'rgba(208, 181, 154,0.7)',central:'rgb(115, 85, 50)'} },
+      { name: 'Tonga', file: 'TO_Increasing_Uncertainty_2025_2035.csv', colors:{ci95:'rgba(77,125,92,0.3)',ci80:'rgba(77,125,92,0.5)',ci50:'rgba(77,125,92,0.7)',central:'rgb(25, 70, 40)'}  },
+      { name: 'Tuvalu', file: 'TV_Increasing_Uncertainty_2025_2035.csv', colors:{ci95:'rgba(70,61,64,0.3)',ci80:'rgba(70,61,64,0.5)',ci50:'rgba(70,61,64,0.7)',central:'rgb(25, 20, 22)'} }  
+    
+    
+    ];
+
+     
+    renderFanChart('melanesia-chart', 'melanesia-buttons', melanesiaRegions);
+    renderFanChart('micronesia-chart', 'micronesia-buttons', micronesiaRegions);
+    renderFanChart('polynesia-chart','polynesia-buttons',polynesiaRegions);
+  </script>
+</body>
+</html>
